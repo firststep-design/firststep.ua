@@ -1,0 +1,38 @@
+export default function Hero() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <section className="bg-gradient-to-br from-blue-600 to-blue-800 py-20 px-4">
+      <div className="max-w-4xl mx-auto text-center">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-fade-in">
+          Спортивное питание <span className="text-blue-200">со склада</span>
+        </h1>
+        <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+          Протеины, гейнеры, аминокислоты и предтренировочные комплексы по оптовым ценам. 
+          Доставка по Украине 1–3 дня. Специальные условия для залов и тренеров.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            onClick={() => scrollToSection('catalog')}
+            className="bg-primary text-white px-8 py-4 rounded-xl hover:bg-primary-dark transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl"
+            data-testid="button-catalog"
+          >
+            Смотреть каталог
+          </button>
+          <button
+            onClick={() => scrollToSection('wholesale')}
+            className="border-2 border-white text-white px-8 py-4 rounded-xl hover:bg-white hover:text-blue-600 transition-all duration-300 font-semibold text-lg"
+            data-testid="button-wholesale"
+          >
+            Условия опта
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}

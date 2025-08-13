@@ -1,0 +1,30 @@
+import Header from "@/components/header";
+import Hero from "@/components/hero";
+import ProductCategories from "@/components/product-categories";
+import ProductCatalog from "@/components/product-catalog";
+import HowToOrder from "@/components/how-to-order";
+import Wholesale from "@/components/wholesale";
+import Contacts from "@/components/contacts";
+import Footer from "@/components/footer";
+import CartSidebar from "@/components/cart-sidebar";
+import { useState } from "react";
+
+export default function Home() {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Header onCartToggle={() => setIsCartOpen(!isCartOpen)} />
+      <CartSidebar isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+      <main>
+        <Hero />
+        <ProductCategories />
+        <ProductCatalog />
+        <HowToOrder />
+        <Wholesale />
+        <Contacts />
+      </main>
+      <Footer />
+    </div>
+  );
+}
